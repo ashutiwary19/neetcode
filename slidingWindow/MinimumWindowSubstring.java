@@ -50,32 +50,30 @@ public class MinimumWindowSubstring {
         int[] map = new int[128];
         int count = t.length();
 
-
         for (int i = 0; i < t.length(); i++) {
             map[t.charAt(i)]++;
         }
 
         int minWindow = Integer.MAX_VALUE;
         int le = -1, re = -1;
-        String solution = "";
         for (int i = 0, l = 0; i < s.length(); i++) {
 
-            if(map[s.charAt(i)]-- > 0) {
+            if (map[s.charAt(i)]-- > 0) {
                 count--;
             }
-             while (count == 0 && l <= i) {
-                if(minWindow > i + 1 - l) {
-                    minWindow =  i + 1 - l;
+            while (count == 0 && l <= i) {
+                if (minWindow > i + 1 - l) {
+                    minWindow = i + 1 - l;
                     le = l;
                     re = i;
                 }
-                if(++map[s.charAt(l++)] > 0){
+                if (++map[s.charAt(l++)] > 0) {
                     count++;
                 }
             }
 
         }
 
-        return le != -1  ? s.substring(le, re + 1) : "";
+        return le != -1 ? s.substring(le, re + 1) : "";
     }
 }

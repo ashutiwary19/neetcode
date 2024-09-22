@@ -1,8 +1,5 @@
 package slidingWindow;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LongestRepeatingCharacterReplacement {
     public int characterReplacement(String s, int k) {
         int majority = 0;
